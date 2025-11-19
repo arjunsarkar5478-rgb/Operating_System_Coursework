@@ -19,6 +19,7 @@ III)  Disk I/O: I will use iostat to measure read/write speeds. Log files from s
 IV)  Network Latency: I will use ping from my workstation to measure packet delay. This will reveal if my strict firewall rules are adding latency to connections.
 
 Deliverable 2: Security Configuration Checklist
+
 I researched current 2025 best practices for Linux server security and created this checklist. I will use this to systematically harden the server in Phase 4 and Phase 5.
 
 I) SSH Hardening (The Critical Access Point)
@@ -40,6 +41,7 @@ IV) System Maintenance
 [ ] Automatic Security Updates: I will configure unattended-upgrades. This ensures that if a critical vulnerability is discovered (like in the Linux kernel), my server patches itself immediately without waiting for me to log in [6].
 
 Deliverable 3: Threat Model
+
 To make sure my security plan actually works, I identified the three most likely attacks my server will face and planned how to stop them.
 
 Threat 1: Brute-Force SSH Attacks
@@ -58,6 +60,7 @@ Description: Attackers scan the network to find open ports (like a web server or
 Mitigation Strategy: I will use the UFW firewall with a "Whitelist" strategy. By setting the default policy to deny incoming, any new service I install is automatically blocked from the network until I make a conscious decision to open it [3].
 
 Week 2: Reflection
+
 Planning this week really changed how I view system administration. I used to think security meant just "installing an antivirus," but I've learned it's actually about "reducing the attack surface."
 
 For example, when researching the Threat Model, I realized that even if I have a strong password, a brute force attack can still waste my server's CPU resources just by trying to log in. That is why I decided to add fail2ban to my checklist it stops the attack at the network level, saving system resources.
@@ -65,4 +68,5 @@ For example, when researching the Threat Model, I realized that even if I have a
 I also learned about the trade-off between security and convenience. Setting up SSH keys is more work than just typing a password, and setting UFW to "Default Deny" means I have to manually open ports every time I install something new. However, this friction is necessary because it forces me to be aware of every door I open into my system.
 
 References
+
 [1] Security Boulevard, "10 Best Linux Server Security Practices for Sysadmin in 2024," Security Boulevard, Apr. 15, 2024. [Online]. Available: https://securityboulevard.com/2024/04/10-best-linux-server-security-practices-for-sysadmin-in-2024/. [2] ShadowSurface, "OpenSSH Security Best Practices in 2024," ShadowSurface Blog, Aug. 30, 2024. [Online]. Available: https://shadowsurface.com/blog/openssh-best-practices/. [3] Online Hash Crack, "Configure UFW Firewall 2025: Rules & Tips," OnlineHashCrack.com, 2025. [Online]. Available: https://www.onlinehashcrack.com/guides/tutorials/configure-ufw-firewall-2025-rules-tips.php. [4] Henry Will, "UFW Firewall Setup Guide for Linux," Medium, Sep. 24, 2025. [Online]. Available: https://medium.com/@henry2589will/ufw-firewall-setup-guide-for-linux-b82db2360e10. [5] Greenhost Cloud, "How To Protect SSH with Fail2Ban on Ubuntu 24.04," Greenhost.Cloud, 2025. [Online]. Available: https://greenhost.cloud/how-to-protect-ssh-with-fail2ban-on-ubuntu-24-04/. [6] Ubuntu, "Automatic updates - Ubuntu Server documentation," Ubuntu.com, 2025. [Online]. Available: https://documentation.ubuntu.com/server/how-to/software/automatic-updates/.

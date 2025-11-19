@@ -9,6 +9,8 @@ goal was to build a two-system setup that separates my admin workstation from th
 server I'll be managing. This setup is a lot like a professional "jump box" or "bastion 
 host" environment, which is great real-world practice [1], [2].
 
+<img width="1077" height="656" alt="System Architecture Diagram" src="https://github.com/user-attachments/assets/91559249-e418-4555-b59a-c28e3068db2d" />
+
 Deliverable 2: Server Distribution Selection Justification 
 
 For my server VM, I decided to use Ubuntu Server 24.04.3 LTS. This was a very 
@@ -61,6 +63,8 @@ First, I created a "Host-Only Network" (vboxnet0) in VirtualBox. This acts as th
 private, isolated network just for my two VMs. The gateway for this network is 
 192.168.56.1.
 
+<img width="1047" height="743" alt="Screenshot 2025-11-12 212050" src="https://github.com/user-attachments/assets/b9d40c81-7d63-4b89-a75d-eb469849bbdc" />
+
 VM Network Adapter Configuration 
 
 I configured both my Workstation and Server VMs with two network adapters each: 
@@ -68,13 +72,31 @@ I configured both my Workstation and Server VMs with two network adapters each:
 I) Adapter1 (Host-Only): This connects the VM to my private vboxnet0 network. 
 This is the adapter I use for SSH
 
+<img width="952" height="599" alt="Screenshot 2025-11-12 212731" src="https://github.com/user-attachments/assets/8d27ad7b-2723-4dec-9a35-0823ad79a8d6" />
+<img width="950" height="597" alt="Screenshot 2025-11-12 212744" src="https://github.com/user-attachments/assets/aa2ec07e-9b47-47ec-97f8-d58e8e843354" />
+
+
 II) Adapter2 (NAT): This gives the VM internet access in a safe, firewalled way. 
 This will be critical later for downloading tools like fail2ban and lynis.
+
+<img width="957" height="592" alt="Screenshot 2025-11-13 101933" src="https://github.com/user-attachments/assets/40e647ae-bc99-4437-8558-03d6830c8a01" />
+<img width="962" height="595" alt="Screenshot 2025-11-13 101952" src="https://github.com/user-attachments/assets/7e01a5e1-dcbd-4cc7-acc5-f9db8a8bc0e6" />
+
 
 Deliverable 5: System Specifications (CLI Evidence) 
 
 Here is the final proof that the whole system works. The screenshots below are taken from 
-my arjun@workstation terminal, showing a successful SSH connection to my server. As required by the brief, you can see my workstation prompt arjun@workstation:
+my arjun@workstation terminal, showing a successful SSH connection to my server. 
+
+<img width="1279" height="888" alt="Screenshot 2025-11-12 220448" src="https://github.com/user-attachments/assets/0743cee9-1122-404e-b5aa-5716592ebc40" />
+<img width="1190" height="705" alt="Screenshot 2025-11-13 112032" src="https://github.com/user-attachments/assets/82f0e6b2-b0e5-4603-8784-4dc80511b404" />
+<img width="1193" height="405" alt="Screenshot 2025-11-13 112112" src="https://github.com/user-attachments/assets/f35f2009-5336-485b-b943-fe6bde86485b" />
+
+
+
+
+
+As required by the brief, you can see my workstation prompt arjun@workstation:
 then the successful login, and then the server's prompt 
 operating_system@coursework:
 After logging in, I ran the 5 required commands to document the server's 

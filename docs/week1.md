@@ -1,83 +1,56 @@
 Phase 1: System Planning and Distribution Selection 
 
-Here is my documentation for all the required deliverables for Phase 1: System Planning.
+This is my documentation of all of the deliverables that were required in the Phase 1: System Planning.
 
 Deliverable 1: System Architecture Diagram
 
-To start, I designed the system architecture required by the assessment brief. The 
-goal was to build a two-system setup that separates my admin workstation from the 
-server I'll be managing. This setup is a lot like a professional "jump box" or "bastion 
-host" environment, which is great real-world practice [1], [2].
+Firstly, I have created the system architecture that the assessment brief required. These were aimed at creating a two systems configuration that disassociates my administrator workstation and the server that I will be administering. This environment is similar to a professional jumphosting or bastion host setup which is excellent in the real world [1], [2].
 
 <img width="1077" height="656" alt="System Architecture Diagram" src="https://github.com/user-attachments/assets/91559249-e418-4555-b59a-c28e3068db2d" />
 
 Deliverable 2: Server Distribution Selection Justification 
 
-For my server VM, I decided to use Ubuntu Server 24.04.3 LTS. This was a very 
-deliberate choice for a few key reasons: 
+In the case of my VM server, I chose to use Ubuntu Server 24.04.3 LTS. This was a highly calculated decision because of the following reasons:
 
-I) Long-Term Support (LTS): The "LTS" version is key. It means I get five years 
-of free security updates [3], [4]. For a server, stability and security are far 
-more important than brand-new features, so this felt like the most professional 
-choice. 
+I) Long-Term Support (LTS): The LTS version is important. It implies five years of complimentary security updates [3], [4]. To a server, stability and security are much more significant than new features, and as such, this was the most professional decision.
 
-II) Industry & Cloud Popularity: Ubuntu is the most popular Linux for cloud 
-computing and servers [3], [6]. Statistics show it holds over 33% of the Linux 
-market [5]. This means any skills I learn on it are directly valuable for a job, 
-which hits the "Employability" theme of the module. 
+II) Industry, Cloud Popularity: Ubuntu is most popularly used in cloud computing and server [3], [6]. According to the statistics, it controls more than 33 percent of the Linux market [5]. This implies that whatever skills I acquire on it are directly marketable in a job, which strikes the theme of the module on Employability.
 
-III) Community & Documentation: It has a massive community, so finding 
-solutions to problems is much easier. If I get stuck, someone has almost 
-certainly posted a fix for it online [7]. 
+III) Community and Documentation: It possesses a huge community, thus it is much easier to find solutions to issues. In case I become stuck, there will be a solution posted somewhere online almost definitely [7].
 
-IV) Ease of Use: While it's based on the super-stable Debian, Ubuntu is generally 
-seen as easier to get started with [7]. Its apt package manager is also really 
-simple to use for installing software.
+IV) Accessibility: Ubuntu is considered to be easier to start with, although it is also founded on the rock-solid Debian [7]. Its package management system is also most efficient and very easy to use when installing software.
 
 Deliverable 3: Workstation Configuration Justification
 
-For my workstation, I went with Option A from the brief, which is to use a separate 
-Linux Desktop VM. I installed Ubuntu 25.10 Desktop for this. 
+In the case of my work station, I have chosen Option A of the brief which consists of using a different Linux Desktop VM. I installed Ubuntu version 25.10 Desktop because of this.
 
-I) Mimicking Professional Practice: This setup mimics how a real sysadmin 
-works. My workstation is a "bastion host" (or "jump server") [1], [2]. The server 
-is on a private network, and my workstation is the only computer allowed to 
-connect to it. This is a core security practice that reduces the server's attack 
-surface. 
+I) Simulation of Professional Practice: This configuration is a replica of real-world activity of a sysadmin. My workstation is a jump server (or bathtion host) [1], [2]. The server is within a private network and my workstation is the only computer that is authorized to be connected to it. It is one of the fundamental security practices that decrease the attack surface of the server.
 
-II) Enforcing the Rules: It also forces me to follow the rules of the project! By 
-using a separate machine, I physically can't use the server's console. It 
-guarantees I am doing all my work over SSH as required. 
+II) Applying the Rules: It also makes me abide by the regulations of the project! I can not physically use the console of the server, by using a separate machine. It has ensured that I am performing all my tasks as needed over SSH.
 
-III) Isolation: It keeps my project work (my scripts, my SSH keys) separate from 
-my main laptop, which is just a good security habit.
+III) Isolation: It maintains my project work (my scripts, my SSH keys) separated out of my main laptop, which is only a good security behavior.
 
 Deliverable 4: Network Configuration Documentation 
 
-I had to set up the network so my two VMs could talk to each other, but also so both 
-could get to the internet for updates. 
+I needed to configure the network, such that my two VMs could communicate with each other, as well as both could access the internet to update.
 
 Host-Only Network 
 
-First, I created a "Host-Only Network" (vboxnet0) in VirtualBox. This acts as the 
-private, isolated network just for my two VMs. The gateway for this network is 
-192.168.56.1.
+The first thing I did was to create a host-only network (vboxnet0) in VirtualBox. This is the personal, closed network only of my two VMs. The IP address of the gateway to this network is 192.168.56.1.
 
 <img width="1047" height="743" alt="Screenshot 2025-11-12 212050" src="https://github.com/user-attachments/assets/b9d40c81-7d63-4b89-a75d-eb469849bbdc" />
 
 VM Network Adapter Configuration 
 
-I configured both my Workstation and Server VMs with two network adapters each: 
+My Workstation and Server VMs were set up with two network adapters each:
 
-I) Adapter1 (Host-Only): This connects the VM to my private vboxnet0 network. 
-This is the adapter I use for SSH
+I) Adapter1 (Host-Only): This is an interface that connects the VM to my own vboxnet0 network. This is my ssh adapter.
 
 <img width="952" height="599" alt="Screenshot 2025-11-12 212731" src="https://github.com/user-attachments/assets/8d27ad7b-2723-4dec-9a35-0823ad79a8d6" />
 <img width="950" height="597" alt="Screenshot 2025-11-12 212744" src="https://github.com/user-attachments/assets/aa2ec07e-9b47-47ec-97f8-d58e8e843354" />
 
 
-II) Adapter2 (NAT): This gives the VM internet access in a safe, firewalled way. 
-This will be critical later for downloading tools like fail2ban and lynis.
+II) Adapter2 (NAT): This provides the VM with access to the internet in a safe and firewalled manner. This will come in handy in future to download applications such as fail2ban and lynis.
 
 <img width="957" height="592" alt="Screenshot 2025-11-13 101933" src="https://github.com/user-attachments/assets/40e647ae-bc99-4437-8558-03d6830c8a01" />
 <img width="962" height="595" alt="Screenshot 2025-11-13 101952" src="https://github.com/user-attachments/assets/7e01a5e1-dcbd-4cc7-acc5-f9db8a8bc0e6" />
@@ -85,8 +58,7 @@ This will be critical later for downloading tools like fail2ban and lynis.
 
 Deliverable 5: System Specifications (CLI Evidence) 
 
-Here is the final proof that the whole system works. The screenshots below are taken from 
-my arjun@workstation terminal, showing a successful SSH connection to my server. 
+This is the last evidence that the entire system works. The figures below are captured on my terminal arjun@workstation and it reflects successful SSH connection to my server.
 
 <img width="1279" height="888" alt="Screenshot 2025-11-12 220448" src="https://github.com/user-attachments/assets/0743cee9-1122-404e-b5aa-5716592ebc40" />
 <img width="1190" height="705" alt="Screenshot 2025-11-13 112032" src="https://github.com/user-attachments/assets/82f0e6b2-b0e5-4603-8784-4dc80511b404" />
@@ -96,26 +68,11 @@ my arjun@workstation terminal, showing a successful SSH connection to my server.
 
 
 
-As required by the brief, you can see my workstation prompt arjun@workstation:
-then the successful login, and then the server's prompt 
-operating_system@coursework:
-After logging in, I ran the 5 required commands to document the server's 
-specifications (uname -a, free -h, df -h, ip addr, and lsb_release -a). 
+As the brief asked, you can see that after I logged in I entered my workstations prompt arjun@workstation: and then the successful log, and the prompt on the server operatingsystem@coursework: and then I proceeded to run the 5 commands that were required to capture the specifications of the server (uname -a, free -h, df -h, ip addr, and lsbrelease -a).
 
 Week 1: Reflection 
 
-This first week was a great exercise in troubleshooting. I ran into a "Permission 
-denied" error when I tried to SSH, even though I was sure I was typing the right 
-password. 
-My first thought was that password authentication was disabled, so I checked the 
-sshd_config file, but PasswordAuthentication yes was already set correctly. 
-The real solution came from checking the SSH service status on the server with 
-sudo systemctl status ssh. I was able to read the logs and saw the error Failed 
-password for invalid user operating_systemcoursework. This instantly showed me 
-the problem: my username was actually operating_system, not 
-operating_systemcoursework as I had first thought. This was a good lesson in how 
-important it is to read the system logs instead of just guessing.
-
+The first week was an excellent ordeal in troubleshooting. I encountered a Permission denied error when I made an attempt to SSH, although I was certain that I was entering the correct password. I assumed that password authentication was turned off, so I went and checked the sshdconfig file, but PasswordAuthentication yes was already set appropriately. The actual solution was a search of the SSH service status on the server using sudo systemctl status ssh. I could read the logs and observed the error Failed password of invalid user operatingsystemcoursework. This immediately revealed me the issue: I was in fact called operatingsystem and not operatingsystemcoursework. That was a lesson, on how to be able to read the system logs rather than just make an educated guess.
 References 
 
 [1] JumpCloud, "What is a Jump Server / Bastion Host?," JumpCloud.com, 2025. 

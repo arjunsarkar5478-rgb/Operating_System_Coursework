@@ -4,6 +4,7 @@ This is my documentation of all of the deliverables that were required in the Ph
 
 Deliverable 1: System Architecture Diagram
 
+
 Firstly, I have created the system architecture that the assessment brief required. These were aimed at creating a two systems configuration that disassociates my administrator workstation and the server that I will be administering. This environment is similar to a professional jumphosting or bastion host setup which is excellent in the real world [1], [2].
 
 <img width="1077" height="656" alt="System Architecture Diagram" src="https://github.com/user-attachments/assets/91559249-e418-4555-b59a-c28e3068db2d" />

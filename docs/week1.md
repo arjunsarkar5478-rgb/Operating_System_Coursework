@@ -73,6 +73,7 @@ As the brief asked, you can see that after I logged in I entered my workstations
 Week 1: Reflection 
 
 The first week was an excellent ordeal in troubleshooting. I encountered a Permission denied error when I made an attempt to SSH, although I was certain that I was entering the correct password. I assumed that password authentication was turned off, so I went and checked the sshdconfig file, but PasswordAuthentication yes was already set appropriately. The actual solution was a search of the SSH service status on the server using sudo systemctl status ssh. I could read the logs and observed the error Failed password of invalid user operatingsystemcoursework. This immediately revealed me the issue: I was in fact called operatingsystem and not operatingsystemcoursework. That was a lesson, on how to be able to read the system logs rather than just make an educated guess.
+
 References 
 
 [1] JumpCloud, "What is a Jump Server / Bastion Host?," JumpCloud.com, 2025. 

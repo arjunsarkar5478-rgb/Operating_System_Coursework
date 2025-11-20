@@ -6,6 +6,7 @@ Deliverable 1: Application Selection Matrix
 
 I selected five distinct applications to target different subsystems of the server (CPU, RAM, Disk, and Network). I chose these specific tools because they are open-source, widely used in the Linux community, and capable of running in a headless environment.
 
+
 <img width="593" height="753" alt="Screenshot 2025-11-19 205632" src="https://github.com/user-attachments/assets/dd70544e-f3fc-42d6-8436-5cc54b214172" />
 
 Deliverable 2: Installation Documentation.

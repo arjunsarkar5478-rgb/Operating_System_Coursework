@@ -21,7 +21,7 @@ I ensured that the unattended-upgrades package is installed and set up. I checke
 
 III) Intrusion Prevention System (Fail2Ban)
 
-I aimed to setup and install Fail2Ban in order to secure SSH service against brute force intrusions. This was not an easy task because there were serious network infrastructure problems (as explained in the Reflections section below). Nonetheless, I later had a chance to confirm that Fail2Ban is present, running, and I was able to create a jail.local rule, which monitors SSH connections and blocks IPs after several failures.
+I aimed to setup and install Fail2Ban in order to secure SSH service against brute force intrusions. This was not an easy task because there were serious network infrastructure problems (as explained in the Reflections section below). Nonetheless, I later had a chance to confirm that Fail2Ban is present, running, and I was able to create a jail.local rule, which monitors SSH connections and blocks IPs after several failures.[1][4]
 
 <img width="1072" height="442" alt="Screenshot 2025-12-04 230046" src="https://github.com/user-attachments/assets/3d3a6905-59ec-4304-9427-76a768a3cadf" />
 
@@ -29,7 +29,7 @@ I aimed to setup and install Fail2Ban in order to secure SSH service against bru
 
 IV) Security Base Line Verification Script
 
-The security-baseline.sh Bash script was written to automate the process of checking security configurations. This script checks the UFW firewall status, SSH root login setup, AppArmor service status, and Fail2Ban SSH jail status giving a summary of PASS/FAIL.
+The security-baseline.sh Bash script was written to automate the process of checking security configurations. This script checks the UFW firewall status, SSH root login setup, AppArmor service status, and Fail2Ban SSH jail status giving a summary of PASS/FAIL.[2][3]
 
 
 <img width="632" height="246" alt="Screenshot 2025-12-04 200407" src="https://github.com/user-attachments/assets/ed3f783c-5e67-4364-8ac1-7dbd78da3588" />
@@ -43,7 +43,7 @@ Text Code Image
 
 V) System Resource Monitoring Script
 
-To give a report on the state of health of the system, I have developed a second script, system-monitor.sh. This script will give important measurement, such as disk space used in the root partition, the current memory usage, and the load averages of the CPU during the past minute, the past 5 minutes, and the past 15 minutes.
+To give a report on the state of health of the system, I have developed a second script, system-monitor.sh. This script will give important measurement, such as disk space used in the root partition, the current memory usage, and the load averages of the CPU during the past minute, the past 5 minutes, and the past 15 minutes.[2]
 
 
 <img width="608" height="342" alt="Screenshot 2025-12-04 200931" src="https://github.com/user-attachments/assets/c21024b8-c056-4ef2-b62c-7928cf60910d" />
@@ -64,3 +64,7 @@ This took me a lot of time to trouble shoot. I tried to recreate the Netplan con
 Time pressure when I was facing this blocker made me be strategic. I understood that I was not able to solve the infrastructure problem at once. I chose not to halt my whole progress and instead pivot my efforts on the scripting deliverables first. As the Bash scripts of security check and system monitoring might be written and checked locally without an internet connection, I did it as I wanted to make sure that these conditions were met.
 
 At some point, I was in a position to confirm the installation of Fail2Ban thus enabling me to deliver on all the deliverables. This taught me that persistence is important in troubleshooting, though the necessity of maintaining a plan that would allow me to continue forward when a critical path is stalled due to reasons beyond my immediate control.
+
+References
+
+[1]DigitalOcean: (2024). How To Protect SSH with Fail2Ban on Ubuntu 22.04. [Online]. Available at: https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-ubuntu-22-04. [2]GNU Project: (2024). Bash Reference Manual. [Online]. Available at: https://www.gnu.org/software/bash/manual/bash.html [3]Canonical Ltd.: (n.d.). UFW - Community Help Wiki. [Online]. Available at: https://help.ubuntu.com/community/UFW. [4]Fail2Ban.org: (n.d.). Fail2Ban Wiki. [Online]. Available at: https://www.fail2ban.org/wiki/index.php/Main_Page

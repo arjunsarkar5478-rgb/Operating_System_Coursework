@@ -1,4 +1,4 @@
-Phase 5: System Hardening and Automation
+Phase 5: Advanced Security and Monitoring Infrastructure 
 
 The main goals I had during the week were to complete the security setting of the Ubuntu Server and automate my workflow. Phase 5, based on the foundations of firewall and SSH hardening of the preceding phase, was dedicated to the active intrusion prevention via Fail2Ban and Bash script writing. These scripts are scheduled to make my security baseline verification automated and capture snapshots of the system resource utilisation which will involve manual checks being replaced by automated monitoring.
 

@@ -1,4 +1,4 @@
-Phase 6: Performance Evaluation and Analysis 
+Phase 6: Performance Evaluation and Analysis  
 
 The development of Baselines and Stress Testing Subsystems.
 
